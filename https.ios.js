@@ -63,6 +63,8 @@ function request(options) {
             var manager = AFHTTPSessionManager.manager();
             manager.requestSerializer.allowsCellularAccess = true;
             manager.securityPolicy = (policies.secured == true) ? policies.secure : policies.def;
+            manager.requestSerializer.timeoutInterval = 60;
+            console.log("IOS_Timeout_Connect 60000");
             console.log("nativescript-https: (request) AF Send: ", request_1);
             manager.session.dataTaskWithRequestCompletionHandler(request_1, function (data, response, error) {
                 if (error) {
