@@ -144,6 +144,9 @@ function getClient(reload: boolean = false): okhttp3.OkHttpClient {
             console.warn('nativescript-https > Undefined host or certificate. SSL pinning NOT working!!!')
         }
     }
+    client.connectTimeout(60,java.util.concurrent.TimeUnit.SECONDS);
+    client.readTimeout(60,java.util.concurrent.TimeUnit.SECONDS)
+    console.log(`Android_Timeout_Connect 60000`);
     Client = client.build();
     return Client
 }
